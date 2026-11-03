@@ -1,0 +1,10 @@
+2026-10-27 08:01:12 INFO [DOCK3] Scanned SKU-1042 qty=12
+2026-10-27 08:02:45 ERROR [PACK1] Label printer offline
+2026-10-27 08:03:10 ERROR [DOCK3] SKU-7781 not found in inventory
+2026-10-27 08:05:00 INFO [DOCK1] Scanned SKU-2001 qty=40
+2026-10-27 08:07:30 INFO [DOCK3] Scanned SKU-1042 qty=8
+junk line from a broken scanner
+2026-10-27 08:10:15 ERROR [PACK1] Scale reading failed
+2026-10-27 08:12:00 INFO [DOCK1] Scanned SKU-2001 qty=10
+2026-10-27 08:15:42 ERROR [SHIP2] Carrier API timeout
+another bad line
