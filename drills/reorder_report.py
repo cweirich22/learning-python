@@ -2,21 +2,14 @@ skus = ["A100", "B200", "C300", "D400"]
 on_hand = [40, 3, 0, 12]
 
 reorder_count = 0 # counter for SKUs that need reordering called reorder_count
-total_units = 0 # running total for all untis on hand called total_untis
-# loop through skus with enumerate to get the position and the sku
-for i, sku in enumerate(skus):
-    # get this sku's quantity from on_hand using the position
-    sku_qty = on_hand[i]
-    # add that quantity to the running total
-    total_units += sku_qty
-    # check if the quantity is under 5
-    if sku_qty < 5:
-        # print the REORDER line with an f-string
-        print(f"REORDER {sku}: {sku_qty} on hand.")
-        # add 1 to the reorder counter
-        reorder_count += 1
-# after the loop: print how many SKUs need reordering
-print(f"SKUs that need to be reordered: {reorder_count}")
-# after the loop: print the total units on hand
-print(f"Total units on hand: {total_units}")
+total_units = 0 # running total for all units on hand called total_units
+for i, sku in enumerate(skus): # loops through skus, giving the position i and the sku name each time
+    sku_qty = on_hand[i] # takes the sku position in the list and uses that same position to get the number in the on_hand list
+    total_units += sku_qty # adds the sku_qty to the total_units to log the running total
+    if sku_qty < 5: # checks if the sku_qty is less than 5
+        print(f"REORDER {sku}: {sku_qty} on hand.") # if True then an f string is made to say what to REORDER and how many are currently on hand
+        reorder_count += 1 # adds 1 to the reorder_count running total
+
+print(f"SKUs that need to be reordered: {reorder_count}") # f string to print what the reorder_count is
+print(f"Total units on hand: {total_units}") # f string to print out what the total units is
 
