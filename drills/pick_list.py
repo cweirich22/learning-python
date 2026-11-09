@@ -14,7 +14,7 @@ def pick_qty(qty, target=20): # creates a function called pick_qty with two para
 def build_pick_list(stock, threshold=10, target=20): # creates a function called build_pick_list that takes in three parameters: stock, threshold with a default of 10, and target with a default of 20
     rows = [] # assigns an empty list to rows
     for sku, qty in stock.items(): # loops through sku and qty in stock disctionary
-        if needs_pick(qty): # checks if needs_pick(qty) is True
+        if needs_pick(qty, threshold): # checks if needs_pick(qty) is True
             to_pick = pick_qty(qty, target) # calls pick_qty and stores the returned quntity in to_pick
             rows.append((sku, qty, to_pick)) # appends the sku, qty, and to_pick to the rows list as a tuple
     return rows # returns the rows list
