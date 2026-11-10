@@ -1,0 +1,6 @@
+  sku-101 , 12
+SKU-202,5   
+ Sku-303 ,  40
+SKU-4X4, 7
+SKU-505,
+pallet
