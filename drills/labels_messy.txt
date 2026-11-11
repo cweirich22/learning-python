@@ -1,0 +1,7 @@
+SKU-1042 | QTY: 12 | PO-55012
+sku-2210|qty:3|po-55013
+SKU-3301 |  QTY 40 | PO-55014
+SKU-77 | QTY: | PO-55015
+damaged pallet, no label
+  SKU-4410 | QTY: 8 | PO-55016  
+SKU-5120 | QTY: 6 | PO-5501

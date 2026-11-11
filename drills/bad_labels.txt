@@ -1,0 +1,3 @@
+line 4: SKU-77 | QTY: | PO-55015
+line 5: damaged pallet, no label
+line 7: SKU-5120 | QTY: 6 | PO-5501
