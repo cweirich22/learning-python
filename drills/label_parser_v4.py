@@ -4,7 +4,7 @@ import csv
 import os
 # folder this script lives in: os.path.dirname(os.path.abspath(__file__))
 folder = os.path.dirname(os.path.abspath(__file__))
-# full paths for labels_messy.txt, parsed_labels_v3.csv, bad_labels.txt using os.path.join
+# full paths for labels_messy.txt, parsed_labels_v4.csv, bad_labels.txt using os.path.join
 labels_messy_path = os.path.join(folder, "labels_messy.txt")
 parsed_labels_v4_path = os.path.join(folder, "parsed_labels_v4.csv")
 bad_labels_path = os.path.join(folder, "bad_labels.txt")
@@ -17,7 +17,7 @@ def parse_label(label):
     match = re.fullmatch(forgiving_pattern, label, flags=re.IGNORECASE)
     # if no match, raise ValueError
     if not match:
-        raise ValueError
+        raise ValueError(f"bad label: {label!r}")
     # return a dict with sku uppercased, qty as int, po uppercased
     return {"sku": match.group(1).upper(), "qty": int(match.group(2)), "po": match.group(3).upper()}
 

@@ -5,6 +5,7 @@ def total(a, b):
     print(a + b)
 x = total(2, 3)
 print(x)
+# PREDICT: the output is 5, then None
 
 # 2 list vs tuple
 pallet = ("SKU-1042", 12)

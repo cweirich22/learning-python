@@ -1,6 +1,7 @@
 def is_valid_sku(text): # creates a function called is_valid_sku that takes in the text parameter
     text = text.strip() # strips the whitespace from the start and end
     return text[:4] == "SKU-" and len(text) == 8 and text[4:8].isdigit() # checks that the prefix is SKU-, the length is equal to 8, and the ending contains only digits        
+    # no if/else needed: each comparison is True/False, so the and expression is already a bool
 
 if __name__ == "__main__":
     # Moved these print statements into the if statement so these are only run when this files code is ran. Importing this file will not run this code meaning we can just run is_valid_sku

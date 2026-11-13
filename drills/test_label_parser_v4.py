@@ -1,4 +1,5 @@
 # Goal: prove parse_label handles clean, lowercase, and bad labels.
+# OVERALL PREDICTION: 7 Passed
 
 import pytest # loads the pytest module
 from label_parser_v4 import parse_label # imports parse_label function from lavel_parser_v4 file
@@ -16,6 +17,7 @@ def test_qty_is_an_int(): # creates a function called test_qty_is_an_int with no
     result = parse_label("SKU-2210 | QTY:3 | PO-55013") # stores the result of running the string through parse_label function
     assert isinstance(result["qty"], int) # checks if the qty is an integer
 
+# Runs the same test once for each bad label in the list.
 @pytest.mark.parametrize("text", [ # tells pytest to run the test once for each item in the list, instead of once total. The first argument, `"text"`, is the parameter name. It has to match the `text` in `def test_bad_label_raises_valueerror(text):`.
     "SKU-2210 | PO-55013", # Each string in the list is an argument that gets passed into `text` on one of those runs.
     "SKU-1042 | QTY: 12 | PO-550123",
@@ -33,7 +35,5 @@ def test_padded_line_still_parses(): # creates a function called test_padded_lin
 # test_clean_label_returns_expected_dict will match the dictionary provided
 # test_lowercase_label_is_uppercased both of these will pass
 # test_qty_is_an_int this will pass because it turns every quantity into an integer
-# test_missing_qty_raises_valueerror will pass a ValueError
-# test_six_digit_po_raises_valueerror will not pass a ValueError since we use re.search
-# test_prefix_junk_raises_valueerror will not pass a ValueError since we are using re.search
+# test_bad_label_raises_valueerror three bad labels each raise ValueError, so all 7 pass
 # test_padded_line_still_parses passes as the result will equal to the output

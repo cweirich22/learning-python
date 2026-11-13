@@ -17,9 +17,9 @@ for po in pos:  # loops through each po in pos
     po_check_2.append(po2) # appends the po2 result into po_check_2
     po_check_3.append(po3) # appends the po3 result into po_check_3
  
-print(po_check_1) # pritns the po_check_1 list
-print(po_check_2) # pritns the po_check_2 list
-print(po_check_3) # pritns the po_check_3 list
+print(po_check_1) # prints the po_check_1 list
+print(po_check_2) # prints the po_check_2 list
+print(po_check_3) # prints the po_check_3 list
 
 # Predict the table:
 # <re.Match object; span=(0, 8), match='PO-55012'>, <re.Match object; span=(0, 8), match='PO-55012'>, <re.Match object; span=(1, 9), match='PO-55013'>, None, None
