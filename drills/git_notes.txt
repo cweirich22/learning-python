@@ -1,0 +1,33 @@
+PREDICTIONS 
+
+1. git log --oneline -10
+
+Used to see the history of all the pushes made to github so we can see what is being done in a repo.
+
+2. git show --stat HEAD
+
+Shows the stats of all the changes, like insertions and deletions along with how many lines were added, made in a single git push.
+Can be used to check what all was changed individually in that specific git push.
+
+3. git diff HEAD~1 -- drills/label_parser_v4.py
+
+Shows exactly in the code where changes were made with red showing the old and green showing the new.
+We can use this to see the exact changes that were made, right from the terminal.
+
+
+CORRECTIONS
+
+1. git log --oneline -10
+
+These are commits, not pushes.
+shows the last 10 commits, one line each: a short commit ID plus the message. It isn't all of them, because the `-10` limits it.
+
+2. git show --stat HEAD
+
+shows the **latest commit** (that's what HEAD means). It lists which files changed and how many lines were added or removed 
+in each. Good use: checking what your last commit actually included before you push.
+
+3. git diff HEAD~1 -- drills/label_parser_v4.py
+
+compares **one commit back** (`HEAD~1`) to your current files, **only for that one file** (that's what the `-- path` part does). 
+Red lines were removed and green lines were added.
