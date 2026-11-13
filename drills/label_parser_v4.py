@@ -6,7 +6,7 @@ import os
 folder = os.path.dirname(os.path.abspath(__file__))
 # full paths for labels_messy.txt, parsed_labels_v3.csv, bad_labels.txt using os.path.join
 labels_messy_path = os.path.join(folder, "labels_messy.txt")
-parsed_labels_v3_path = os.path.join(folder, "parsed_labels_v3.csv")
+parsed_labels_v4_path = os.path.join(folder, "parsed_labels_v4.csv")
 bad_labels_path = os.path.join(folder, "bad_labels.txt")
 # forgiving pattern: r"(SKU-\d+)\s*\|\s*QTY:?\s*(\d+)\s*\|\s*(PO-\d{5})"
 forgiving_pattern = r"(SKU-\d+)\s*\|\s*QTY:?\s*(\d+)\s*\|\s*(PO-\d{5})"
@@ -39,7 +39,7 @@ def main():
                 bad_lines.append(f"line {line_num}: {line.strip()}")
 
     # open the CSV in "w" with newline=""
-    with open(parsed_labels_v3_path, "w", newline="") as out:
+    with open(parsed_labels_v4_path, "w", newline="") as out:
         # writer = csv.DictWriter(out, fieldnames=["sku", "qty", "po"])
         writer = csv.DictWriter(out, fieldnames=["sku", "qty", "po"])
         # writer.writeheader()

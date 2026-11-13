@@ -16,17 +16,14 @@ def test_qty_is_an_int(): # creates a function called test_qty_is_an_int with no
     result = parse_label("SKU-2210 | QTY:3 | PO-55013") # stores the result of running the string through parse_label function
     assert isinstance(result["qty"], int) # checks if the qty is an integer
 
-def test_missing_qty_raises_valueerror(): # creates a function called test_missing_qty_raises_valueerror with no parameter
-    with pytest.raises(ValueError): # checks to see if missing qty rasises a ValueError
-        parse_label("SKU-2210 | PO-55013") # runs the parse_label function with the string
-
-def test_six_digit_po_raises_valueerror(): # creates a function called test_six_digit_po_raises_valueerror with no parameter
-    with pytest.raises(ValueError): # checks to see if 6 digit PO raises ValueError
-        parse_label("SKU-1042 | QTY: 12 | PO-550123") # runs the parse_label function with the string
-
-def test_prefix_junk_raises_valueerror(): # creates a function called test_prefix_junk_raises_valueerror with no parameter
-    with pytest.raises(ValueError): # checks to see if the prefix junk raises ValueError
-        parse_label("XSKU-1042 | QTY: 12 | PO-55012") # runs the parse_label function with the string
+@pytest.mark.parametrize("text", [ # tells pytest to run the test once for each item in the list, instead of once total. The first argument, `"text"`, is the parameter name. It has to match the `text` in `def test_bad_label_raises_valueerror(text):`.
+    "SKU-2210 | PO-55013", # Each string in the list is an argument that gets passed into `text` on one of those runs.
+    "SKU-1042 | QTY: 12 | PO-550123",
+    "XSKU-1042 | QTY: 12 | PO-55012",
+])
+def test_bad_label_raises_valueerror(text):
+    with pytest.raises(ValueError):
+        parse_label(text)
 
 def test_padded_line_still_parses(): # creates a function called test_padded_line_still_parses with no parameter
     result = parse_label("  SKU-4410 | QTY: 8 | PO-55016  \n") # stores the result of running parse_label with the string
