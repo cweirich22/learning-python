@@ -21,12 +21,12 @@ with open("drills/scanner.log", "r") as f: # opens drills/scanner.log in read mo
             continue # if not m is True so skip over this loop
         scanner = m.group(1) # scanner is assigned to capture m group 1
         scanner_counts[scanner] = scanner_counts.get(scanner, 0) + 1 # old count, or 0 if this key is new, plus 1
-        print(f"{scanner}: {scanner_counts}") # prints f string with scanner and scanner_counts
+        # print(f"{scanner}: {scanner_counts}") # prints f string with scanner and scanner_counts
         desc = m.group(2) # desc is assigned to m capture group 2
         desc_counts[desc] = desc_counts.get(desc, 0) + 1 # old count, or 0 if this key is new, plus 1
-        print(f"{desc}: {desc_counts}") # prints f string with desc and desc_counts
+        # print(f"{desc}: {desc_counts}") # prints f string with desc and desc_counts
 
-# PREDICT PRINT IN LOOP
+# PREDICT PRINT IN LOOP (CHANGED THESE LINES TO COMMENTS)
 # SCN-02: 1
 # NO_READ: 1
 # SCN-01: 1
