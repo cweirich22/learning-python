@@ -1,0 +1,20 @@
+QUESTIONS
+1. A child script runs `sys.exit(3)`. Without `check=True`, what happens, and where do you see the 3? 
+   With `check=True`, what happens instead?
+2. Why make an `os.environ.copy()` and change the copy, instead of passing `env={"REORDER_POINT": "15"}` 
+   or editing `os.environ` directly? Give two reasons.
+
+ANSWERS
+1. Without `check=True`: the parent doesn't react at all. The child exits 3, `subprocess.run` hands back 
+   the receipt, and your code keeps going. The 3 just sits in `result.returncode`, and you have to check 
+   it yourself.
+   With `check=True`: any nonzero code, 3 included, makes Python raise `CalledProcessError` in the parent. 
+   If you don't catch it with `try/except`, the parent crashes, and `e.returncode` holds the 3.
+   To remember it: `check=True` means "treat anything other than 0 as an error." It's the opposite of 
+   passing through.
+2. - Changing the copy doesn't touch the parent's real environment. (Yours.)
+   - `env={"REORDER_POINT": "15"}` gives the child only that one variable. It loses everything else 
+     it needs, like PATH and SYSTEMROOT on Windows, so Python or other programs may fail to start. The 
+     copy keeps all of them and adds yours.
+   - Editing `os.environ` directly would also change it for every later child the parent starts, which 
+    leaks the setting into places you didn't mean.
