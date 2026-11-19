@@ -1,0 +1,6 @@
+bin,sku,expected,counted,variance
+A3-04,SKU-1042,12,10,-2
+A3-05,SKU-2210,40,40,0
+B1-01,SKU-0077,5,8,3
+B1-03,SKU-1042,6,6,0
+C2-07,SKU-5150,100,93,-7
