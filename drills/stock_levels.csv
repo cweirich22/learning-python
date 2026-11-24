@@ -1,0 +1,6 @@
+sku,bin,on_hand,reorder_point
+SKU-1042,A3-04,10,15
+SKU-2210,A3-05,40,20
+SKU-3301,B1-02,3,5
+SKU-4410,B1-03,0,8
+SKU-5120,C2-01,25,25
